@@ -20,5 +20,27 @@ function adicionarAmigo(){
     console.log(nomesDosAmigos);
 
     document.getElementById("amigo").value = "";
+}
 
+function exibirListaNoFront(){
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
+
+    for (let i = 0; i < nomesDosAmigos.length; i++) {
+        let item = document.createElement("li");
+        item.textContent = nomesDosAmigos[i];
+        lista.appendChild(item);
+    }
+}
+
+function sortearAmigo(){
+  if(nomesDosAmigos.length === 0){
+    alert("Adicione amigos para sortear!");
+    return;
+  }
+
+  let amigoSorteado = nomesDosAmigos[Math.floor(Math.random() * nomesDosAmigos.length)];
+
+  document.getElementById("resultado")
+  .innerHTML = `<strong>Amigo sorteado: </strong> ${amigoSorteado}`;
 }
